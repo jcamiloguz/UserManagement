@@ -10,7 +10,7 @@ html {
 	box-sizing: inherit;
 }
 
-ul, li, h1, h2, h3, p, button {
+ul, li, h1, h2, h3, p, button ,hr{
 	margin: 0;
 	padding: 0;
 }
