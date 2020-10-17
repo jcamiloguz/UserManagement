@@ -1,9 +1,9 @@
 import React from "react"
-import {UserCard} from './components/UserCard'
+import {UserList} from './components/UserList'
 import {GlobalStyle} from './styles/GlobalStyles'
 
 export  const App =()=>(
 	<>
 	<GlobalStyle/>
-		<UserCard/>		</>
+		<UserList/>		</>
 )
