@@ -1,5 +1,8 @@
 import React from "react"
+import { GlobalStyle } from './styles/globalStyles'
 
 export  const App =()=>(
-	<h1>Holas</h1>
+	<GlobalStyle>
+		
+	</GlobalStyle>
 )
