@@ -1,5 +1,5 @@
 import React from "react"
-
+import {UserCard} from './components/UserCard'
 export  const App =()=>(
-	<h1>Holas</h1>
+	<UserCard/>
 )
