@@ -1,12 +1,16 @@
-import React from 'react'
+ import React from 'react'
 import {UserCard} from '../UserCard'
+import {List} from './styles'
 export const UserList =()=>{
-	const users=[{id:1},{id:2},{id:3}]
+	const users=[{id:"dsa23",name:"Juan"},{id:"dsa2",name:"Pedros"}]
+	let index =0
 	return(
-	<ul>
+	<List>
 		{
-		users.map(user=>(<UserCard key={user.id}/>))
+		users.map(user=>{
+			index++
+		return(<UserCard user={user} key={user.id} index={index}/>)})
 		}
-	</ul>
+	</List>
 	)
 }

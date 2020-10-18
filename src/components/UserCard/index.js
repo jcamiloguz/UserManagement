@@ -6,10 +6,10 @@ export const UserCard =({user,index})=>{
 	return(
 		<Wrapper>
 			<div className="index">
-				{1}
+				{index}
 			</div>
 			<div className="UserTitle">
-				<h1>Holaa</h1>
+				<h1>{user.name}</h1>
 				<hr/>
 			</div>
 			<div className="ButtonWrapper">

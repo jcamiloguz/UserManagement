@@ -11,17 +11,20 @@ box-shadow:0px 5px 10px #ccc;
 grid-template-columns:40px 1fr 170px;
 align-items:center;
 gap:20px;
+background-color:var(--bg-primary);
+transition:450ms;
 .index{
 	height:40px;
-	background-color:#192A56;
+	background-color:var(--blue-dark);
+	font-size:1.5rem;
 	align-self: start;
 	display:flex;
 	justify-content:center;
 	align-items:center;
-	color:#fefefe;
+	color:var(--bg-primary);
 }
 hr{
-border-top: 1px solid red;
+border-top: 5px solid var(--blue-dark);
 }
 
 `

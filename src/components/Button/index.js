@@ -8,36 +8,36 @@ const typeButton = (type) => {
     case 'delete':
       Info = {
         icon: MdDelete,
-        BgColor: '#E84118',
-        HoverColor: '#C23616',
-        FontColor: '#fefefe',
+        BgColor: '--red-primary',
+        HoverColor: '--red-primary',
+        FontColor: '--bg-primary',
         text: 'Delete',
       }
       break
     case 'edit':
       Info = {
         icon: MdEdit,
-        BgColor: '#FBC531',
-        HoverColor: '#E1B12C',
-        FontColor: '#fefefe',
+        BgColor: '--yellow-primary',
+        HoverColor: '--yellow-dark',
+        FontColor: '--bg-primary',
         text: 'Edit',
       }
       break
     case 'add':
       Info = {
         icon: MdAdd,
-        BgColor: '#273C75',
-        HoverColor: '#192A56',
-        FontColor: '#fefefe',
+        BgColor: '--blue-primary',
+        HoverColor: '--blue-dark',
+        FontColor: '--bg-primary',
         text: 'Add New User',
       }
       break
     case 'save':
       Info = {
         icon: MdEdit,
-        BgColor: '#273C75',
-        HoverColor: '#192A56',
-        FontColor: '#fefefe',
+        BgColor: '--blue-primary',
+        HoverColor: '--blue-dark',
+        FontColor: '--bg-primary',
         text: 'Save',
       }
       break
