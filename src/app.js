@@ -1,9 +1,27 @@
 import React from "react"
-import {UserList} from './components/UserList'
+import {Users} from './pages/Users'
+import {NewUser} from './pages/NewUser'
 import {GlobalStyle} from './styles/GlobalStyles'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
 
 export  const App =()=>(
-	<>
-	<GlobalStyle/>
-		<UserList/>		</>
+		<>
+			<GlobalStyle/>
+			<Router>
+				<Switch> 
+					<Route exact path='/users'>
+						<Users/>
+					</Route>
+					<Route exact path='/users/new'>
+						<NewUser/>
+					</Route>
+				</Switch>
+			</Router>
+		</>
+
 )

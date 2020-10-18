@@ -4,7 +4,7 @@ import {Button} from '../Button'
 import {UserForm} from '../UserForm'
 import {MdClose} from 'react-icons/md'
 
-export const UserCard =({user,index})=>{
+export const UserCard =({user,index,changeHandler})=>{
 	const [edit, setEdit] = useState(false);
 	const editHandler=()=>{
 		edit
@@ -31,7 +31,7 @@ export const UserCard =({user,index})=>{
 			&&<div onClick={editHandler} className="exit"><MdClose/> </div>
 			}
 			{edit 
-			&& <UserForm user={user}/>}
+			&& <UserForm user={user} changeHandler={changeHandler}/>}
 		</Wrapper>
 	)
 

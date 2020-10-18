@@ -16,6 +16,9 @@ html {
   --bg-primary: #FCFCFC;
   --bg-secondary: #F5F6FA;
 }
+a{
+	text-decoration:none;
+}
 
 *, *:before, *:after {
 	box-sizing: inherit;
