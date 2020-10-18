@@ -2,25 +2,25 @@ import React from 'react'
 import {Form, Input} from './styles'
 import {Button} from '../Button'
 
-export const UserForm =()=>{
+export const UserForm =({user})=>{
 
 	return(
 		<Form>
 			<div >
 				<h2>First Name:</h2>
-				<Input/>
+				<Input value={user.firstName}/>
 			</div>
 			<div >
 				<h2>Last Name:</h2>
-				<Input/>
+				<Input value={user.lastName}/>
 			</div>
 			<div >
 				<h2>Email:</h2>
-				<Input/>
+				<Input value={user.email}/>
 			</div>
 			<div >
 				<h2>Username:</h2>
-				<Input/>
+				<Input value={user.userName}/>
 			</div>
 			<div className="checkboxes">
 				<h2>User role(s):</h2>

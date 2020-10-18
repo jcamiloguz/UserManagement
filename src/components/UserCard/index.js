@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import {Wrapper} from './styles'
 import {Button} from '../Button'
 import {UserForm} from '../UserForm'
+import {MdClose} from 'react-icons/md'
+
 export const UserCard =({user,index})=>{
 	const [edit, setEdit] = useState(false);
 	const editHandler=()=>{
@@ -11,19 +13,25 @@ export const UserCard =({user,index})=>{
 		console.log('click')
 	}
 	return(
-		<Wrapper>
+		<Wrapper edit={edit}>
 			<div className="index">
 				{index}
 			</div>
 			<div className="UserTitle">
-				<h1>{`${user.name} ${user.lastName||''}`}</h1>
+				<h1>{`${user.firstName} ${user.lastName||''}`}</h1>
+				<h3>{` @${user.userName||''}`}</h3>
 				<hr/>
 			</div>
 			<div className="ButtonWrapper">
-				<Button clickHandler={editHandler} type="edit"/>
+			{!edit 
+			&&<Button clickHandler={editHandler} type="edit"/>
+			}
 			</div>
 			{edit 
-			&& <UserForm/>}
+			&&<div onClick={editHandler} className="exit"><MdClose/> </div>
+			}
+			{edit 
+			&& <UserForm user={user}/>}
 		</Wrapper>
 	)
 
