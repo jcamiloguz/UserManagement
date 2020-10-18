@@ -9,7 +9,7 @@ const typeButton = (type) => {
       Info = {
         icon: MdDelete,
         BgColor: '--red-primary',
-        HoverColor: '--red-primary',
+        HoverColor: '--red-dark',
         FontColor: '--bg-primary',
         text: 'Delete',
       }
@@ -47,14 +47,12 @@ const typeButton = (type) => {
 	return Info
 }
 
-export const Button = ({ type }) => {
+export const Button = ({ type, clickHandler }) => {
   const Info = typeButton(type)
   return (
-    <>
-      <Buttons Info={Info}>
+      <Buttons onClick={clickHandler}Info={Info}>
         <Info.icon />
         {Info.text}
       </Buttons>
-    </>
   )
 }
