@@ -58,6 +58,31 @@ export const createUser = async (user) => {
     )
   }
 }
+export const updateUser = async (user,data) => {
+  const active = user.active === 'yes' ? true : false
+  const postBody = {
+    firstName: user.firstName,
+    lastName: user.lastName,
+    userName: user.userName,
+    email: user.email,
+    active: active,
+  }
+  console.log(JSON.stringify(postBody))
+  const response = await fetch(
+    `https://jcamiloguz-userapi.herokuapp.com/users/${data.idUser}`,
+    {
+      method: 'PUT',
+      mode: 'cors',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+      body: JSON.stringify(postBody),
+    }
+  )
+	const res = await response.json()
+	console.log(res)
+  
+}
 export const deleteUser = (data	) => {
 	fetch(`https://jcamiloguz-userapi.herokuapp.com/users/${data.idUser}`, {
 		method: 'DELETE',

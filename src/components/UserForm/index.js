@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Form, Input } from './styles'
 import { Button } from '../Button'
 import { useHistory } from 'react-router'
-import { createUser, deleteUser } from '../../api'
+import { createUser, deleteUser,updateUser } from '../../api'
 
 export const UserForm = ({ data={}, type = 'new' }) => {
   const [state, setState] = useState({
@@ -12,7 +12,9 @@ export const UserForm = ({ data={}, type = 'new' }) => {
       lastName: '',
       email: '',
       userName: '',
-      roles: [],
+			roleAdmin:'off',
+			roleMember:'off',
+			roleContr:'off',
       active: data.active===1 ? 'yes': 'no',
     },
   })
@@ -26,7 +28,22 @@ export const UserForm = ({ data={}, type = 'new' }) => {
       )
         .then((res) => res.json())
         .then((res) => {
-					console.log(res)
+					res.map(realation=>{
+						switch (realation.idRoleUR) {
+							case 1:
+								state.user.roleAdmin='on'
+								break;
+							case 11:
+								state.user.roleMember='on'
+								break;
+							case 21:
+								state.user.roleContr='on'
+								break;
+						
+							default:
+								break;
+						}
+					})
         })
     }
   }, [])
@@ -45,7 +62,29 @@ export const UserForm = ({ data={}, type = 'new' }) => {
         user: { ...state.user, [e.target.name]: e.target.value },
       })
     }
-  }
+	}
+	const checkboxHandler=(e)=>{
+		switch (e.target.name) {
+			case 'roleAdmin':
+					state.user.roleAdmin==='on'
+					?state.user.roleAdmin='off'
+					:state.user.roleAdmin='on'
+				break;
+			case 'roleMember':
+					state.user.roleMember==='on'
+					?state.user.roleMember='off'
+					:state.user.roleMember='on'
+				break;
+			case 'roleContr':
+					state.user.roleContr==='on'
+					?state.user.roleContr='off'
+					:state.user.roleContr='on'
+				break;
+		
+			default:
+				break;
+		}
+	}
 
   const deleteHandler = async (e) => {
 		e.preventDefault()
@@ -56,7 +95,12 @@ export const UserForm = ({ data={}, type = 'new' }) => {
     e.preventDefault()
     await createUser(state.user)
     history.push('/users')
-  }
+	}
+	const updateHandler=async(e)=>{
+		e.preventDefault()
+		await updateUser(state.user,data)
+		history.go(0)
+	}
   return (
     <Form>
       <div>
@@ -95,17 +139,17 @@ export const UserForm = ({ data={}, type = 'new' }) => {
       <div className="checkboxes">
         <h2>User role(s):</h2>
         <label>
-          <input type="checkbox" name="roleAdmin" onChange={changeHandler} />
+          <input type="checkbox" name="roleAdmin" onChange={checkboxHandler} value={state.user.roleAdmin==='on'}/>
           <span className="checkmark"></span>
           Administrator
         </label>
         <label>
-          <input type="checkbox" name="roleMember" onChange={changeHandler} />
+          <input type="checkbox" name="roleMember" onChange={checkboxHandler}value={state.user.roleMember==='on'} />
           <span className="checkmark"></span>
           Member
         </label>
         <label>
-          <input type="checkbox" name="roleContr" onChange={changeHandler} />
+          <input type="checkbox" name="roleContr" onChange={checkboxHandler} value={state.user.roleContr==='on'}/>
           <span className="checkmark"></span>
           Contributor
         </label>
@@ -138,7 +182,7 @@ export const UserForm = ({ data={}, type = 'new' }) => {
         ) : (
           <>
             <Button clickHandler={deleteHandler} type="delete" />
-            <Button type="save" />
+            <Button clickHandler={updateHandler}type="save" />
           </>
         )}
       </div>
