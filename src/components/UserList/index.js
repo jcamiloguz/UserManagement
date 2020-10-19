@@ -15,7 +15,7 @@ export const UserList =()=>{
 		{
 		users.map(user=>{
 			index++
-		return(<UserCard user={user} key={user.idUser} index={index}/>)})
+		return(<UserCard  user={user} key={user.idUser} index={index}/>)})
 		}
 	</List>
 	)

@@ -18,6 +18,9 @@ font-size:1rem;
 	display:flex;
 	justify-content:space-between;
 }
+h4{
+	color:#E84118
+}
 `
 
 export const Input =styled.input`

@@ -9,7 +9,7 @@ export const Users =()=>{
 	return	(
 		<Main>
 			<UserList/>
-			<Link to={`${url}/new`}>
+			<Link to={`/new`}>
 				<Button type='add'/>
 			</Link>
 		</Main>

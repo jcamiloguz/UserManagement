@@ -31,7 +31,7 @@ export const UserCard =({user,index,changeHandler})=>{
 			&&<div onClick={editHandler} className="exit"><MdClose/> </div>
 			}
 			{edit 
-			&& <UserForm user={user} changeHandler={changeHandler}/>}
+			&& <UserForm type='edit'data={user} changeHandler={changeHandler}/>}
 		</Wrapper>
 	)
 
