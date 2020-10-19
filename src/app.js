@@ -23,7 +23,7 @@ export  const App =()=>(
 					<Route exact path='/users'>
 						<Users/>
 					</Route>
-					<Route exact path='/users/new'>
+					<Route exact path='/new'>
 						<NewUser/>
 					</Route>
 				</Switch>
