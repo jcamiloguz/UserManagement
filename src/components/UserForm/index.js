@@ -25,18 +25,13 @@ export const UserForm =({data,type='new'})=>{
 					[e.target.name]:e.target.value}})
 		}
 	}
-	const checkboxHandler=(e)=>{
-		setState({
-			...state,user:{...state.user,
-			[e.target.name]:[e.target.value]}
-		})
-	}
+	
 	const deleteHandler=(e)=>{
 		e.preventDefault()
 		fetch(`https://jcamiloguz-userapi.herokuapp.com/users/${data.idUser}`,{
-			method: 'DELETE', // Method itself
+			method: 'DELETE', 
 			headers: {
-			 'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+			 'Content-type': 'application/json; charset=UTF-8' 
 			},
 		 })
 		 .then(res=>res.json)
@@ -46,7 +41,24 @@ export const UserForm =({data,type='new'})=>{
 	}
 	const addHandler=(e)=>{
 		e.preventDefault()
-		console.log(state.user)
+		const active = state.user.active==='yes'?true:false
+		const postBody ={
+			firstName:state.user.firstName,
+			lastName:state.user.lastName,
+			userName:state.user.userName,
+			email:state.user.email,
+			active:active,
+		}
+		console.log(JSON.stringify(postBody))
+		fetch(`https://jcamiloguz-userapi.herokuapp.com/users`,{
+			method: 'POST', 
+			mode: 'cors', 
+			headers: {
+				'Content-type': 'application/json; charset=UTF-8' 
+			},
+			body: JSON.stringify(postBody) 
+		})
+		.then(res=>console.log(res))
 	}
 	return(
 		<Form>
