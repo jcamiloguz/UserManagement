@@ -33,9 +33,24 @@
   },
   "dependencies": {
     "react": "^16.14.0",
+    "react-app-polyfill": "^1.0.6",
     "react-dom": "^16.14.0",
     "react-icons": "^3.11.0",
     "react-router-dom": "^5.2.0",
     "styled-components": "^5.2.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all",
+      "ie 11"
+    ],
+    "development": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all",
+      "ie 11"
+    ]
   }
 }

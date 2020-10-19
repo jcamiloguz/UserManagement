@@ -14,7 +14,7 @@ export  const App =()=>(
 			<GlobalStyle/>
 			<Router>
 				<Switch> 
-					<Route exact path='/users'>
+					<Route exact path='/'>
 						<Users/>
 					</Route>
 					<Route exact path='/users/new'>

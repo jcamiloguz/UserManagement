@@ -24,7 +24,7 @@ a{
 	box-sizing: inherit;
 }
 body{
-	background-color:var(--bg-secondary);
+	background-color:#F5F6FA;
 }
 ul, li, h1, h2, h3, p, button ,hr{
 	margin: 0;
